@@ -1,10 +1,9 @@
-set nocompatible
-
-syntax enable
-filetype plugin on
-
 set path+=**
+
+set wildmode=longest,list,full
 set wildmenu
+
+set wildignore+=**/node_modules/*
 
 command! MakeTags !ctags -R .
 
@@ -38,15 +37,18 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'ycm-core/YouCompleteMe'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
 colorscheme gruvbox
 highlight Normal guibg=none
 
 let mapleader = " "
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
@@ -58,3 +60,11 @@ augroup MARCIN
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
+
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+
+nmap sh <C-w>h
+nmap sl <C-w>l
+nmap sj <C-w>j
+nmap sk <C-w>k
