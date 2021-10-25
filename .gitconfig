@@ -1,0 +1,13 @@
+[user]
+	name = Marcin Wilk
+	email = marcin.wilk.dev@gmail.com
+[color]
+	ui = auto
+[merge]
+	conflictstyle = diff3
+[init]
+	defaultbranch = main
+[core]
+	editor = nvim
+[diff]
+	tool = nvim
