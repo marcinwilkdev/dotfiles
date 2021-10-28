@@ -4,10 +4,13 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'sheerun/vim-polyglot'
 
+    use { 'nvim-telescope/telescope.nvim',
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        }
+    }
     -- Plug 'scrooloose/NERDTree'
-    -- Plug 'nvim-lua/plenary.nvim'
-    -- Plug 'nvim-telescope/telescope.nvim'
-    -- Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
     use 'neovim/nvim-lspconfig'
     use 'mfussenegger/nvim-jdtls'

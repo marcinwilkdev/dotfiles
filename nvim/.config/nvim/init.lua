@@ -3,6 +3,7 @@ require('mappings')
 require('plugins')
 
 require('config.treesitter')
+require('config.telescope')
 
 require('config.lsp')
 require('config.cmp')
@@ -16,7 +17,7 @@ require('themes.airline')
 
 require('config.rnvimr')
 require('config.colorizer')
--- require('config.jdtls_ui') need telescope
+require('config.jdtls_ui')
 
 vim.api.nvim_set_keymap('n', '<A-CR>', [[<Cmd>lua require('jdtls').code_action()<CR>]], { noremap = true })
 vim.api.nvim_set_keymap('n', 'K', [[<cmd>lua vim.lsp.buf.hover()<CR>]], { noremap = true, silent = true })
