@@ -1,18 +1,19 @@
 require('settings')
 require('mappings')
 require('plugins')
-require('treesitter-config')
-require('lsp-config')
 
-require('java-lsp')
-require('lua-lsp')
+require('config.treesitter')
+require('config.lsp')
+require('config.rnvimr')
 
--- require('jdtls_ui-config') need telescope
-require('rnvimr-config')
+require('lsp.java')
+require('lsp.lua')
 
-require('onedark-config')
-require('airline-config')
-require('colorizer-config')
+require('themes.onedark')
+require('themes.airline')
+
+require('config.colorizer')
+-- require('config.jdtls_ui') need telescope
 
 vim.api.nvim_set_keymap('n', '<A-CR>', [[<Cmd>lua require('jdtls').code_action()<CR>]], { noremap = true })
 vim.api.nvim_set_keymap('n', 'K', [[<cmd>lua vim.lsp.buf.hover()<CR>]], { noremap = true, silent = true })
