@@ -3,8 +3,10 @@ require('mappings')
 require('plugins')
 
 require('config.treesitter')
+
 require('config.lsp')
-require('config.rnvimr')
+require('config.cmp')
+require('config.snippets')
 
 require('lsp.java')
 require('lsp.lua')
@@ -12,6 +14,7 @@ require('lsp.lua')
 require('themes.onedark')
 require('themes.airline')
 
+require('config.rnvimr')
 require('config.colorizer')
 -- require('config.jdtls_ui') need telescope
 
@@ -31,6 +34,6 @@ vim.cmd([[
 vim.cmd([[
     augroup jdtls_lsp
         autocmd!
-        autocmd FileType java lua require('java-lsp').setup()
+        autocmd FileType java lua require('lsp.java').setup()
     augroup end
-    ]])
+]])

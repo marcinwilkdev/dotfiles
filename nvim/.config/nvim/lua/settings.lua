@@ -10,7 +10,7 @@ vim.opt.undofile = true
 vim.opt.exrc = true
 vim.opt.relativenumber = true
 vim.opt.nu = true
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.opt.errorbells = false
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
@@ -47,6 +47,5 @@ vim.opt.writebackup = false
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 500
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.autochdir = true
 
 vim.cmd('au! BufWritePost $MYVIMRC source %')
