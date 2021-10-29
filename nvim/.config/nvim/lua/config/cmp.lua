@@ -1,6 +1,7 @@
 local nvim_lsp = require 'lspconfig'
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
+local lspkind = require 'lspkind'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -15,11 +16,6 @@ end
 vim.o.completeopt = 'menu,menuone,noselect'
 
 cmp.setup {
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -48,9 +44,33 @@ cmp.setup {
       end
     end,
   },
+
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'luasnip' },
-    { name = 'buffer' }
+    { name = 'buffer', keyword_lenth = 5 }
   },
+
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+
+  formatting = {
+      format = lspkind.cmp_format {
+          with_text = true
+      },
+      menu = {
+          buffer = "[buf]",
+          nvim_lsp = "[LSP]",
+          path = "[path]",
+          luasnip = "[snip]",
+      }
+  },
+
+  experimental = {
+      ghost_text = true,
+  }
 }
