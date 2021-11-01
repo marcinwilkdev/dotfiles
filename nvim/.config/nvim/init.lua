@@ -11,16 +11,15 @@ require('config.snippets')
 
 require('lsp.java')
 require('lsp.lua')
+require('lsp.rust')
 
 require('themes.onedark')
 require('themes.airline')
 
-require('config.rnvimr')
 require('config.colorizer')
 require('config.jdtls_ui')
 
 vim.api.nvim_set_keymap('n', '<A-CR>', [[<Cmd>lua require('jdtls').code_action()<CR>]], { noremap = true })
-vim.api.nvim_set_keymap('n', 'K', [[<cmd>lua vim.lsp.buf.hover()<CR>]], { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<space>/', [[:Commentary<CR>]], { noremap = true })
 vim.api.nvim_set_keymap('v', '<space>/', [[:Commentary<CR>]], { noremap = true })

@@ -10,12 +10,13 @@ return require('packer').startup(function(use)
             { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
         }
     }
-    -- Plug 'scrooloose/NERDTree'
 
     use 'neovim/nvim-lspconfig'
+    use 'simrat39/rust-tools.nvim'
     use 'mfussenegger/nvim-jdtls'
-
     use 'tjdevries/nlua.nvim'
+    
+    use 'mfussenegger/nvim-dap'
 
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -25,7 +26,6 @@ return require('packer').startup(function(use)
 
     use 'jiangmiao/auto-pairs'
     use 'tpope/vim-commentary'
-    use { 'kevinhwang91/rnvimr', run = 'make sync' }
     use 'mhinz/vim-startify'
 
     use 'joshdick/onedark.vim'
