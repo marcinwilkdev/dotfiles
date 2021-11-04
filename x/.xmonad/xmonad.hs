@@ -18,7 +18,7 @@ myLayout = spacingRaw True (Border 3 3 3 3) True (Border 3 3 3 3) True
 		delta =    3/100
 
 myConfig = def
-	{ terminal = "alacritty"
+	{ terminal = "kitty"
 	, modMask = mod4Mask
 	, borderWidth = 2
 	, focusedBorderColor = "#5293e2"

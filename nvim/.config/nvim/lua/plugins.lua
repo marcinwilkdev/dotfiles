@@ -31,5 +31,5 @@ return require('packer').startup(function(use)
     use 'joshdick/onedark.vim'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
-    use 'norcalli/nvim-colorizer.lua'
+    -- use 'norcalli/nvim-colorizer.lua'
 end)

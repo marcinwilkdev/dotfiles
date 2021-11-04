@@ -16,7 +16,7 @@ require('lsp.rust')
 require('themes.onedark')
 require('themes.airline')
 
-require('config.colorizer')
+-- require('config.colorizer')
 require('config.jdtls_ui')
 
 vim.api.nvim_set_keymap('n', '<A-CR>', [[<Cmd>lua require('jdtls').code_action()<CR>]], { noremap = true })
