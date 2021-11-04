@@ -12,6 +12,8 @@ return require('packer').startup(function(use)
     }
 
     use 'neovim/nvim-lspconfig'
+    use 'onsails/lspkind-nvim'
+
     use 'simrat39/rust-tools.nvim'
     use 'mfussenegger/nvim-jdtls'
     use 'tjdevries/nlua.nvim'
@@ -22,14 +24,11 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip'
-    use 'onsails/lspkind-nvim'
 
     use 'jiangmiao/auto-pairs'
     use 'tpope/vim-commentary'
-    use 'mhinz/vim-startify'
 
-    use 'joshdick/onedark.vim'
+    use 'gruvbox-community/gruvbox'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
-    -- use 'norcalli/nvim-colorizer.lua'
 end)

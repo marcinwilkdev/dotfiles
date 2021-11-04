@@ -19,4 +19,4 @@ let g:airline_symbols.maxlinenr = ''
 vim.api.nvim_set_var('airline_left_sep', '')
 vim.api.nvim_set_var('airline_right_sep', '')
 
-vim.api.nvim_set_var('airline_theme', 'onedark')
+vim.api.nvim_set_var('airline_theme', 'gruvbox')

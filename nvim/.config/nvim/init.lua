@@ -13,23 +13,11 @@ require('lsp.java')
 require('lsp.lua')
 require('lsp.rust')
 
-require('themes.onedark')
+require('themes.gruvbox')
 require('themes.airline')
 
--- require('config.colorizer')
 require('config.jdtls_ui')
-
-vim.api.nvim_set_keymap('n', '<A-CR>', [[<Cmd>lua require('jdtls').code_action()<CR>]], { noremap = true })
-
-vim.api.nvim_set_keymap('n', '<space>/', [[:Commentary<CR>]], { noremap = true })
-vim.api.nvim_set_keymap('v', '<space>/', [[:Commentary<CR>]], { noremap = true })
-
-vim.cmd([[
-    augroup packer_user_config
-       autocmd!
-       autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-    augroup end
-]])
+require('config.commentary')
 
 vim.cmd([[
     augroup jdtls_lsp

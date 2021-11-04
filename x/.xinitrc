@@ -52,5 +52,4 @@ xbindkeys
 xkbcomp ~/.Xkeymap $DISPLAY
 xmobar &
 nitrogen --restore &
-picom -b
 exec xmonad
