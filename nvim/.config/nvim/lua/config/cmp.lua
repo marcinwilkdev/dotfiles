@@ -69,8 +69,4 @@ cmp.setup {
           luasnip = "[snip]",
       }
   },
-
-  experimental = {
-      ghost_text = true,
-  }
 }

@@ -7,7 +7,7 @@ require('config.telescope')
 
 require('config.lsp')
 require('config.cmp')
-require('config.snippets')
+-- require('config.snippets')
 
 require('lsp.java')
 require('lsp.lua')
