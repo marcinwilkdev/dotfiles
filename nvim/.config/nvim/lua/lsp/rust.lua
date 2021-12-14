@@ -70,7 +70,7 @@ local opts = {
             },
 
             -- whether the hover action window gets automatically focused
-            auto_focus = false
+            auto_focus = true
         },
 
         -- settings for showing the crate graph based on graphviz and the dot

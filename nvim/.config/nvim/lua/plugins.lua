@@ -25,6 +25,9 @@ return require('packer').startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip'
 
+    use 'tpope/vim-dadbod'
+    use 'kristijanhusak/vim-dadbod-ui'
+
     use 'jiangmiao/auto-pairs'
     use 'tpope/vim-commentary'
 

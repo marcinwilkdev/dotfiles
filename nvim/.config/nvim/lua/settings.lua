@@ -4,8 +4,6 @@ table.insert(vim.opt.path, '**')
 vim.opt.wildmode = 'longest,list,full'
 vim.opt.wildmenu = true
 table.insert(vim.opt.wildignore, '**/node_modules/*')
-vim.opt.undodir = '~/.vim/undodir'
-vim.opt.undofile = true
 
 vim.opt.exrc = true
 vim.opt.relativenumber = true
