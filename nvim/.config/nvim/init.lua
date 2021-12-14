@@ -12,6 +12,7 @@ require('config.cmp')
 require('lsp.java')
 require('lsp.lua')
 require('lsp.rust')
+require('lsp.bash')
 
 require('themes.gruvbox')
 require('themes.airline')
