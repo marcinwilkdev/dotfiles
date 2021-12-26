@@ -11,3 +11,5 @@
 	editor = nvim
 [diff]
 	tool = nvim
+[pull]
+	rebase = false
