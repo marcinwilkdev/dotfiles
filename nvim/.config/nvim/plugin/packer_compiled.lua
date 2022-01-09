@@ -184,6 +184,11 @@ _G.packer_plugins = {
     path = "/Users/marcin/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/marcin/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["vim-polyglot"] = {
     loaded = true,
     path = "/Users/marcin/.local/share/nvim/site/pack/packer/start/vim-polyglot",
