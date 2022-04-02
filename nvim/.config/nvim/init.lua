@@ -12,7 +12,9 @@ require('config.project')
 require('config.gitsigns')
 
 require('lsp.rust')
-require('lsp.bash')
+require('lsp.lua')
+require('lsp.c')
+require('lsp.go')
 
 require('themes.gruvbox')
 require('themes.airline')
