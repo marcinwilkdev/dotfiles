@@ -30,7 +30,7 @@ if(CMAKE_C_COMPILER_ID MATCHES Clang)
 endif()
 
 add_subdirectory(src)
-add_subdirectory(test_src)
+add_subdirectory(test)
 
 add_executable(${PROJECT_NAME} main.c)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
