@@ -1,0 +1,63 @@
+#!/bin/bash
+
+mkdir $1
+
+echo '#include <stdlib.h>
+#include <stdio.h>
+
+int main(void) {
+
+    return EXIT_SUCCESS;
+}' > $1/main.c
+
+echo 'cmake_minimum_required(VERSION 3.14)
+
+project ('$1' LANGUAGES C)
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release")
+endif()
+
+set(CMAKE_C_FLAGS_DEBUG "-O0 -ggdb3")
+set(CMAKE_C_FLAGS_RELEASE "-O3 -march=native")
+
+if(CMAKE_C_COMPILER_ID MATCHES GNU)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
+endif()
+
+if(CMAKE_C_COMPILER_ID MATCHES Clang)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Weverything -Wno-vla -Wno-declaration-after-statement")
+endif()
+
+add_subdirectory(src)
+add_subdirectory(test)
+
+add_executable(${PROJECT_NAME} main.c)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
+
+enable_testing()
+
+add_test(
+    NAME test
+    COMMAND test
+    )' > $1/CMakeLists.txt
+
+mkdir $1/build
+mkdir $1/src
+mkdir $1/test
+
+echo 'add_library(${PROJECT_NAME}-lib STATIC)
+
+target_sources(${PROJECT_NAME}-lib
+    PUBLIC
+        lib.h
+    PRIVATE
+        lib.c
+    )' > $1/src/CMakeLists.txt
+
+echo 'add_executable(test test.c)
+target_link_libraries(test PUBLIC ${PROJECT_NAME}-lib)' > $1/test/CMakeLists.txt
+
+git init $1
+
+echo 'build/' > $1/.gitignore
