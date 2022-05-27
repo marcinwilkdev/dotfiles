@@ -1,2 +1,2 @@
 CompileFlags:
-  Add: [-Weverything, -Wno-vla]
+  Add: [-Weverything, -Wno-vla, -Wno-vla -Wno-declaration-after-statement]
