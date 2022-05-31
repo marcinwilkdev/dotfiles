@@ -1,0 +1,134 @@
+before arithmetic all narrow types are promoted to signed int
+
+0x1.7AP-13 - Hexadecimal floating point constant
+
+all numerical literals are positive, - just negates the value
+
+decimal integer constant -> first signed type that fits (signed, long, long long)
+hex or octal constant -> int if fits, otherwise smallest unsigned that fits (unsigned, unsigned long, unsigned long long)
+
+I reserved for imaginary unit (0.5 + 0.5I)
+
+unsigned >> signed
+don't mix signs in operations
+
+INITALIZE ALL VARS                                                             !
+
+T a = {0} - works for every type
+
+all constants with meaning have to be named
+all constants with different meaning have to be distinguished
+
+enumerations type = signed int
+you can initalize enum with ICE
+ICE (integer constant expression):
+- doesnt evaluate any object
+- can consist of: int literals, enumeration constants, _Alignof, offsetof, sizeof
+
+#define CORVID_NAME /**/
+(char const*const[corvid_num]) {
+    [chough] = "chough",
+}
+
+there must be space between name and (), otherwise functional macro
+compund literal defines an object
+
+use unsiged for bit operations
+
+use fixed length types where applicable
+
+dont compare floating points for equality
+
+an array with length thats not ICE is an VLA
+
+in preprocessor conditions unknown identifiers evaluate to 0
+
+%d - integer
+%u - unsigned
+%x - bit patterns
+%g - floats
+
+%+d, %#X, %a - conversions that have to ve read later
+
+use as many asserts as necessary
+use NDEBUG to switch off asserts
+
+all pointer differences are of type ptrdiff_t
+
+function decays to function pointer
+
+sizeof(char) == 1   ALWAYS                                                     !
+every object A can be viewed as unsigned char[sizeof A] (or uint8_t[sizeof A])
+
+only pointers of the same type can alias
+(exceptions: char pointers and void pointers <- should use restrict)           !
+
+you can use objects by their effective type or pointer to char type
+
+STORAGE CLASSES:
+{
+    - static (determined at compile time, valid for whole program duration)
+    - automatic (automatically determined at runtime, default behaviour)
+    - allocated (explicitly determined by malloc and friends)
+    - thread (bound to certain thread of execution)
+}
+
+EXTERN keyword means this var should be linked by linker (either internal or external)
+{
+    (in file scope): {
+        - declaration of var with linkage so there has to be somewhere
+        ONE and only ONE definition
+        - if it's in the same file the linkage is internal otherwise external
+        - only used for vars
+        - linker links this declaration after program startup (so the
+        definition has to have static storage duration)
+    },
+    (in function scope): {
+        - declaration of var with linkage
+        - has to link against some definition with static storage duration
+        - because it's linked at compile time
+    },
+    (GOOD PRACTICE): {
+        - declare global vars that should be used in other files also
+        with EXTERN keyword in header file
+        - define them in corresponding translation unit? (.c file)
+        - use them like normal vars in other files (after including header file),
+        iff shadowed by local var (what shouldn't happen) use EXTERN keyword
+    }
+}
+
+STATIC keyword means that var should have internal linkage
+{
+    (file scope): {
+        - declares and defines object with internale linkage, which means
+        it can't be linked from outside this file (file exclusive global objects)
+    },
+    (function scope): {
+        - declares and defines var with static storage duration
+    },
+    (GOOD PRACTICE): {
+        - declare and define global objects exclusive to one file with STATIC
+    }
+}
+
+LINKAGE:
+{
+    variable with linkage is managed by linker and initalized at startup of the program
+    EXTERNAL LINKAGE: identifiers accessed from different object files
+    INTERNAL LINKAGE: a global, file scope object or function
+    NO LINKAGE: otherwise (normal function scope vars)
+}
+
+STATIC STORAGE DURATION:
+{
+    - objects that are defined in file scope
+    - variables from function blocks with storage class specifier STATIC
+    - compound literals                                                        !
+    - string literals                                                          !
+
+    - have lifetime of entire program execution
+    - can only be initialized with expressions known at compile time
+    - are always initialized
+}
+
+
