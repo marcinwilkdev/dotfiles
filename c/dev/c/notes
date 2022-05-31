@@ -131,4 +131,33 @@ STATIC STORAGE DURATION:
     - are always initialized
 }
 
+temporary lifetime is used to acces fields of objects returned from function
+their lifetime ends at the end of enclosing full expression
 
+provide initalization funciton for each struct
+
+define inline functions in header files and                                    ! 
+declare them in TU files (.c files) without inline                             !
+protect them by naming convention
+
+volatile objects are read from memory each time they're accessed
+volatile objects are stored to memory each time they're modified
+
+signal handlers need types with uninterruptible operations (sig_atomic_t)
+change sigatomic_t in signal handler and then take actions according to it
+in normal code
+
+_Atomic(T) for atomic declarations
+
+call_once for racefree initialization and destruction (if we dont know where
+it's initialized) otherwise initialize and destroy in main
+
+mtx_t used for critical sections use by different threads
+should be initialized and destroyed
+recursive mutex exists
+
+cnd_t use to wait for something to happen
+should be initialized and destroyed
+on return from cnd_t condition should be checked again                         !
+
+returning from main or exit terminates all threads
