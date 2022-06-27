@@ -51,6 +51,7 @@ return packer.startup(function(use)
     use "akinsho/bufferline.nvim"
     use "moll/vim-bbye"
     use "akinsho/toggleterm.nvim"
+    use "ahmedkhalf/project.nvim"
 
     -- Colorscheme
     use "morhetz/gruvbox"
