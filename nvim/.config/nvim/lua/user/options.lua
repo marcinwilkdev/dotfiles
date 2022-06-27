@@ -33,7 +33,6 @@ local options = {
     scrolloff = 8,
     sidescrolloff = 8,
     guifont = "monospace:h17",
-    laststatus = 0,
     incsearch = true,
     colorcolumn = '80',
 }
