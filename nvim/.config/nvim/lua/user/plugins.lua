@@ -52,6 +52,7 @@ return packer.startup(function(use)
     use "moll/vim-bbye"
     use "akinsho/toggleterm.nvim"
     use "ahmedkhalf/project.nvim"
+    use 'lewis6991/impatient.nvim'
 
     -- Colorscheme
     use "morhetz/gruvbox"
