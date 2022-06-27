@@ -1,22 +1,14 @@
-require('settings')
-require('mappings')
-require('plugins')
-
-require('config.treesitter')
-require('config.telescope')
-
-require('config.lsp')
-require('config.cmp')
-require('config.tree')
-require('config.project')
-require('config.gitsigns')
-
-require('lsp.rust')
-require('lsp.lua')
-require('lsp.c')
-require('lsp.go')
-
-require('themes.gruvbox')
-require('themes.airline')
-
-require('config.commentary')
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+require "user.colorscheme"
+require "user.cmp"
+require "user.lsp"
+require "user.telescope"
+require "user.treesitter"
+require "user.autopairs"
+require "user.comment"
+require "user.gitsigns"
+require "user.nvim-tree"
+require "user.bufferline"
+require "user.toggleterm"
