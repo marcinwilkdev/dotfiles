@@ -161,3 +161,7 @@ should be initialized and destroyed
 on return from cnd_t condition should be checked again                         !
 
 returning from main or exit terminates all threads
+
+// --
+
+case values have to be ICE (integer constant expressions)

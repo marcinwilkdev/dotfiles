@@ -6,7 +6,7 @@
 [merge]
 	conflictstyle = diff3
 [init]
-	defaultbranch = main
+	defaultbranch = master
 [core]
 	editor = nvim
 [diff]
