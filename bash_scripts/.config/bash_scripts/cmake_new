@@ -15,7 +15,7 @@ echo 'cmake_minimum_required(VERSION 3.14)
 project ('$1' LANGUAGES C)
 
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Release")
+    set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1) # for clangd intergation
@@ -40,8 +40,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}-lib)
 enable_testing()
 
 add_test(
-    NAME test
-    COMMAND test
+    NAME ${PROJECT_NAME}_test
+    COMMAND ${PROJECT_NAME}_test
     )' > $1/CMakeLists.txt
 
 mkdir $1/build
@@ -57,8 +57,25 @@ target_sources(${PROJECT_NAME}-lib
         lib.c
     )' > $1/src/CMakeLists.txt
 
-echo 'add_executable(test test.c)
-target_link_libraries(test PUBLIC ${PROJECT_NAME}-lib)' > $1/test/CMakeLists.txt
+echo '#ifndef LIB_H
+#define LIB_H
+
+
+
+#endif' > $1/src/lib.h
+
+echo '#include "lib.h"' > $1/src/lib.c
+
+echo 'add_executable(${PROJECT_NAME}_test ${PROJECT_NAME}_test.c)
+target_link_libraries(${PROJECT_NAME}_test PUBLIC ${PROJECT_NAME}-lib)' > $1/test/CMakeLists.txt
+
+echo '#include <assert.h>
+#include <stdlib.h>
+
+int main(void) {
+
+    return EXIT_SUCCESS;
+}' > $1/test/$1_test.c
 
 git init $1
 

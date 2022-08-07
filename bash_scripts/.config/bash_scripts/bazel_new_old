@@ -1,0 +1,83 @@
+#!/bin/bash
+
+HEDRO_HASH=$(cd /home/marcin/dev/c/helpers/bazel-compile-commands-extractor && git pull > /dev/null && git rev-parse HEAD)
+# GOOGLETEST_HASH=$(cd /home/marcin/dev/c/helpers/googletest && git pull > /dev/null && git rev-parse HEAD) - HEAD doesn't compile
+GOOGLETEST_RELEASE=1.12.1
+
+mkdir $1
+mkdir $1/lib
+mkdir $1/test
+mkdir $1/main
+
+echo 'load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+  name = "com_google_googletest",
+  urls = ["https://github.com/google/googletest/archive/refs/tags/release-'$GOOGLETEST_RELEASE'.zip"],
+  strip_prefix = "googletest-release-'$GOOGLETEST_RELEASE'",
+)
+
+http_archive(
+    name = "hedron_compile_commands",
+    url = "https://github.com/hedronvision/bazel-compile-commands-extractor/archive/'$HEDRO_HASH'.tar.gz",
+    strip_prefix = "bazel-compile-commands-extractor-'$HEDRO_HASH'",
+)
+
+load("@hedron_compile_commands//:workspace_setup.bzl", "hedron_compile_commands_setup")
+hedron_compile_commands_setup()' > $1/WORKSPACE
+
+echo 'cc_binary(
+    name = "main",
+    srcs = ["main.c"],
+    deps = ["//lib:'$1'_lib"],
+)' > $1/main/BUILD
+
+echo '#include <stdlib.h>
+#include <stdio.h>
+
+int main(void) {
+
+    return EXIT_SUCCESS;
+}' > $1/main/main.c
+
+echo 'cc_library(
+    name = "'$1'_lib",
+    srcs = ["'$1'_lib.c"],
+    hdrs = ["'$1'_lib.h"],
+    visibility = [
+        "//main:__pkg__",
+        "//test:__pkg__",
+    ]
+)' > $1/lib/BUILD
+
+echo '#ifndef '${1^^}'_LIB_H
+#define '${1^^}'_LIB_H
+
+#endif' > $1/lib/$1_lib.h
+
+echo '#include "'$1'_lib.h"' > $1/lib/$1_lib.c
+
+echo 'cc_test(
+    name = "'$1'_test",
+    srcs = ["'$1'_test.cc"],
+    deps = [
+        "@com_google_googletest//:gtest_main",
+        "//lib:'$1'_lib"
+    ],
+)' > $1/test/BUILD
+
+echo '#include <gtest/gtest.h>
+
+extern "C"
+{
+    #include "../lib/'$1'_lib.h"
+}
+
+TEST(BasicTest, BasicAssertions)
+{
+    EXPECT_EQ(0, 0);
+}' > $1/test/$1_test.cc
+
+git init $1
+
+(cd $1 && bazel run @hedron_compile_commands//:refresh_all)

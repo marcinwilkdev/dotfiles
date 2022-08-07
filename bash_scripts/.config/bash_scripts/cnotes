@@ -1,0 +1,18 @@
+1. C programs consists of different types of text elements:
+    - special words
+    - punctuation (brackets and separators)
+    - comments
+    - literals (fixed values that are part of program code)
+    - identifiers (data objects (variables), types, functions and constants)
+    - functions (declaration and definition)
+    - operators
+2. Declarations = what identifier should represent. (what is this identifier + type)
+3. Declarations are bound to the scope in which they appear (block or file).
+4. Definitions = initialization of object. (place in memory + value)
+5. Initialization augments declaration and provides initial value for object.
+6. Statements are instructions that tell compiler what to do with identifiers that have been declared so far.
+
+1. Conditional execution is supported using controlling expressions in if statements.
+2. All scalars have truth value (0 is false, rest is true):
+    - scalars are numerical types and also pointer types (size_t, ptrdiff_t and void*)
+3. Case values in switch have to be ICE (integer constant exprssions).

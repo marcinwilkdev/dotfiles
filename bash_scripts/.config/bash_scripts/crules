@@ -1,0 +1,48 @@
+1. Always use sizeof() with variable name instead of type name.
+2. All header files shall include what they need to be able to compile alone without any errors or warnings.
+3. Code files should not be larger than 1000 lines.
+4. Filenames: <prefix>_<file_name>.<file_extension>
+5. All local functions shall have static function declaration placed before static function definition in the same file.
+6. Prefer forward declaration in header files before including other header files. (Try to only declare necessary variables instead of including headers.)
+7. Function definitions in header files (static inline) should be put in separate from pure interface files. (<name>_impl).h
+8. Each code line shall contain at most 100 characters.
+9. One empty line to separate unrelated statements and two empty line to separate functions, processes etc. in file.
+10. Macro constants should be placed in column 32 and comments in 40.
+11. Hexadecimal numbers shall be written in lowercase.
+12. Const keyword in from of type name.
+13. Do not use magical numbers in code. Create symbolic names but not with static const (reserves memory). -1, 0 and 1 are not magical.
+14. Each change of level should be indented (exception switch).
+15. Curly braces on separate line and braces must be used. (exception do while where ending while on the same line)
+16. Always space after if, while, for and switch.
+17. Add one or more spaces around * when it is placed after a memory qualifier.
+18. Function pointers shall always be preceeded with * when referenced to and do not use & to assign address to function pointer.
+19. Always use break and default in switch case. Statements can be grouped if first are empty.
+20. Do not add trailing comma after last entry in enum.
+21. Names of variables, functions, types and processes can be divided into following parts: <prefix>_<name>_<suffix>
+22. A recommended maximum length of a name is 10 to 20 characters
+23. Boolean variables and constants shall be given names that imply the meaning when variable is true
+24. Macros and constants that do not reserve memory shall be written with capital letters only. (exception function like macro)
+25. Camel came convention for variable, function, type and process name (abbreviations in name included)
+26. The suffix _p and _pp shall be added to pointers and pointers to pointers respectively.
+27. Always add unit to size variables containing the word size. For lengths of arrays length or len shall be used.
+28. Add prefix to enum types that can be related to the enumerated type.
+29. Structures shall end with S, enums with E, unions with U and custom types with T.
+30. When feasbile, structures shall be protected with magic number which are collected in common header file (allows for runtime checks).
+31. Always initialize simple typed global and local variables immediately. Structures and arrays better to initalize in function.
+32. When defining array always specify its size.
+33. Do not use regular CM variables of simple types for synchronization. Use API from lpp_dsp.h instead.
+34. Put function parameters in input-modify-output order.
+35. Functions should not be larger than 50 lines.
+36. A global function that should be possible to inline shall have its inline definition in header file and extern declaration in one source file.
+37. A function that always will be inlined shall have its static inline definition in header file.
+38. The number of function parameters should not exceed 6.
+39. Wherever possible use enum definition instead of #define values.
+40. When adding comments inside macro definition always use /**/ comments.
+41. All private attributes should start with an underscore.
+42. All instance methods shall take pointer to object as first parameter which should be called this_p.
+43. Constructor and destructor methods shall be called constructor() and destructor() and can not allocate memory for struct, only for its fields.
+44. To dynamically allocate and de-allocate objects functions called new() and delete() shall be used.
+45. It is recommended to keep class attributes private and use so-called get and set methods.
+46. When implementing singleton pattern the constructor shall be declared static and the pointer this_p can be excluded.
+47. Pointers to LDM are 16 bits and pointer to CM are 32 bits.
+48. Do not provide public constructor to a class whose objects shall always be allocated on the heap.

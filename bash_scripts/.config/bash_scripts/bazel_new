@@ -1,0 +1,71 @@
+#!/bin/bash
+
+mkdir $1
+mkdir $1/lib
+mkdir $1/test
+mkdir $1/main
+
+touch $1/WORKSPACE
+
+echo 'cc_binary(
+    name = "main",
+    srcs = ["main.c"],
+    deps = ["//lib:'$1'_lib"],
+)' > $1/main/BUILD
+
+echo '#include <stdlib.h>
+#include <stdio.h>
+
+int main(void) {
+
+    return EXIT_SUCCESS;
+}' > $1/main/main.c
+
+echo 'cc_library(
+    name = "'$1'_lib",
+    srcs = ["'$1'_lib.c"],
+    hdrs = ["'$1'_lib.h"],
+    visibility = [
+        "//main:__pkg__",
+        "//test:__pkg__",
+    ]
+)' > $1/lib/BUILD
+
+echo '#ifndef '${1^^}'_LIB_H
+#define '${1^^}'_LIB_H
+
+#endif' > $1/lib/$1_lib.h
+
+echo '#include "'$1'_lib.h"' > $1/lib/$1_lib.c
+
+echo 'cc_test(
+    name = "'$1'_test",
+    srcs = ["'$1'_test.c"],
+    deps = [
+        "//lib:'$1'_lib"
+    ],
+)' > $1/test/BUILD
+
+echo '#include <stdlib.h>
+#include <stdio.h>
+#include <assert.h>
+
+#include "../lib/'$1'_lib.h"
+
+static int basicTest(void);
+
+int main(void)
+{
+    int exitStatus = EXIT_SUCCESS;
+
+    exitStatus += basicTest();
+
+    return exitStatus;
+}
+
+static int basicTest(void)
+{
+    return 0;
+}' > $1/test/$1_test.c
+
+git init $1
