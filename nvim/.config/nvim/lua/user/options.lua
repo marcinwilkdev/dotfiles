@@ -34,6 +34,7 @@ local options = {
     guifont = "monospace:h17",
     incsearch = true,
     colorcolumn = '80',
+    mouse = "a",
 }
 
 vim.opt.shortmess:append "c"
