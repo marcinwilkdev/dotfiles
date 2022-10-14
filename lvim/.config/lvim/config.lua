@@ -163,6 +163,8 @@ linters.setup {
 -- Additional Plugins
 lvim.plugins = {
   { "morhetz/gruvbox" },
+  { "JuliaEditorSupport/julia-vim" },
+  { "lervag/vimtex" },
   -- {
   --   "folke/trouble.nvim",
   --   cmd = "TroubleToggle",
