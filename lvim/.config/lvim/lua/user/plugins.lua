@@ -4,4 +4,5 @@ lvim.plugins = {
   { "JuliaEditorSupport/julia-vim" },
   { "lervag/vimtex" },
   { "ggandor/leap.nvim" },
+  { "mfussenegger/nvim-jdtls" }
 }
