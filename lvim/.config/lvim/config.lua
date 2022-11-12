@@ -15,7 +15,6 @@ lvim.colorscheme = "gruvbox"
 lvim.lsp.diagnostics.virtual_text = false
 lvim.builtin.project.manual_mode = true
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -72,7 +71,9 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "cpp",
   "javascript",
+  "java",
   "json",
   "lua",
   "python",
@@ -128,8 +129,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
-require("user.formatters")
-require("user.linters")
 require("user.plugins")
-require("user.autocommands")
 require("user.leap")
+require("user.lsp")
