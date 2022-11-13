@@ -1,5 +1,6 @@
 -- Additional Plugins
 lvim.plugins = {
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
 	{ "morhetz/gruvbox" },
 	{ "JuliaEditorSupport/julia-vim" },
 	{ "lervag/vimtex" },
@@ -11,6 +12,9 @@ lvim.plugins = {
 	{ "mxsdev/nvim-dap-vscode-js" },
 	{ "mfussenegger/nvim-dap-python" },
 	{ "karb94/neoscroll.nvim" },
+	{ "p00f/nvim-ts-rainbow" },
+	{ "windwp/nvim-ts-autotag" },
+	{ "kylechui/nvim-surround" },
 	{
 		"zbirenbaum/copilot.lua",
 		config = function()
