@@ -1,3 +1,5 @@
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
+
 local capabilities = require("lvim.lsp").common_capabilities()
 
 require("typescript").setup({

@@ -1,9 +1,5 @@
-lvim.format_on_save = false
-lvim.lsp.diagnostics.virtual_text = true
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
 
-lvim.builtin.treesitter.highlight.enable = true
-
--- some settings can only passed as commandline flags, see `clangd --help`
 local clangd_flags = {
   "--background-index",
   "--fallback-style=Google",
@@ -67,19 +63,13 @@ local opts = {
 
 require("lvim.lsp.manager").setup("clangd", opts)
 
--- install codelldb with :MasonInstall codelldb
--- configure nvim-dap (codelldb)
 lvim.builtin.dap.on_config_done = function(dap)
   dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
     executable = {
-      -- provide the absolute path for `codelldb` command if not using the one installed using `mason.nvim`
       command = "codelldb",
       args = { "--port", "${port}" },
-
-      -- On windows you may have to uncomment this:
-      -- detached = false,
     },
   }
 

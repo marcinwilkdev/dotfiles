@@ -2,14 +2,13 @@ require("user.lsp.languages.rust")
 require("user.lsp.languages.c")
 require("user.lsp.languages.python")
 require("user.lsp.languages.js-ts")
+require("user.lsp.languages.latex")
 -- require("user.lsp.languages.go")
 
 lvim.format_on_save = false
 lvim.lsp.diagnostics.virtual_text = false
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
 
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
@@ -31,4 +30,5 @@ linters.setup({
 		command = "eslint",
 		filetypes = { "typescript", "typescriptreact" },
 	},
+  { command = "chktex", filetypes = { "tex" } },
 })
