@@ -2,7 +2,6 @@ require("user.lsp.languages.rust")
 require("user.lsp.languages.c")
 require("user.lsp.languages.python")
 require("user.lsp.languages.js-ts")
-require("user.lsp.languages.latex")
 -- require("user.lsp.languages.go")
 
 lvim.format_on_save = false
@@ -30,5 +29,4 @@ linters.setup({
 		command = "eslint",
 		filetypes = { "typescript", "typescriptreact" },
 	},
-  { command = "chktex", filetypes = { "tex" } },
 })

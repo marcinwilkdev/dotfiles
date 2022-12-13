@@ -5,7 +5,7 @@ lvim.plugins = {
 	{ "JuliaEditorSupport/julia-vim" },
 	{ "lervag/vimtex" },
 	{ "kdheepak/cmp-latex-symbols" },
-  { "SirVer/ultisnips" },
+	{ "SirVer/ultisnips" },
 	{ "KeitaNakamura/tex-conceal.vim" },
 	{ "ggandor/leap.nvim" },
 	{ "mfussenegger/nvim-jdtls" },
@@ -51,5 +51,14 @@ lvim.plugins = {
 				},
 			})
 		end,
+	},
+	-- install without yarn or npm
+	{
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	},
 }
