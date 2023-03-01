@@ -1,6 +1,5 @@
 lvim.log.level = "warn"
 lvim.format_on_save = false
-lvim.colorscheme = "gruvbox"
 lvim.builtin.project.manual_mode = true
 
 lvim.leader = "space"
