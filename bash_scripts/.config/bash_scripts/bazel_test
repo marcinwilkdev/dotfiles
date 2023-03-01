@@ -1,1 +1,0 @@
-bazel run -c dbg --copt='-Werror' //test:"$1"

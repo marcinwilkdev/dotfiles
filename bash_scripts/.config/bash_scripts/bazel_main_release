@@ -1,1 +1,0 @@
-bazel run --copt='-Werror' //main
