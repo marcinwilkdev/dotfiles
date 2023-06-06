@@ -2,20 +2,28 @@
 	name = Marcin Wilk
 	email = marcin.wilk.dev@gmail.com
 
-[color]
-	ui = auto
-
-[merge]
-	conflictstyle = diff3
+[core]
+	editor = lvim
+  pager = delta
 
 [init]
 	defaultbranch = master
 
-[core]
-	editor = lvim
+[color]
+	ui = auto
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  side-by-side = true
 
 [diff]
-	tool = lvim
+  colorMoved = default
+
+[merge]
+	conflictstyle = diff3
 
 [pull]
 	rebase = false

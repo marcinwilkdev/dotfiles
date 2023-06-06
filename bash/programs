@@ -1,3 +1,0 @@
-sudo apt install btop
-cargo install fd ripgrep exa bat
-curl -sS https://starship.rs/install.sh | sh

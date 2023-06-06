@@ -1,0 +1,10 @@
+sudo apt install btop
+cargo install fd-find ripgrep exa bat git-delta bob-nvim gitui
+curl -sS https://starship.rs/install.sh | sh
+bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
+
+{
+  git clone https://github.com/ronniedroid/getnf.git
+  cd getnf
+  ./install.sh
+}

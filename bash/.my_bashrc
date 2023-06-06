@@ -1,11 +1,12 @@
-export PATH=/home/marcin/dev/nvim-linux64/bin/:/home/marcin/.local/bin:$PATH
+export PATH=/home/marcin/.local/bin:/home/marcin/.local/share/bob/nvim-bin:/home/marcin/.local/bin:$PATH
 
-eval "$(starship init bash)"
+eval "$(atuin init bash --disable-up-arrow)"
 
 alias ls="exa"
 alias find="fd"
 alias grep="rg"
 alias cat="bat"
+alias diff="delta"
 
 alias ga="git add"
 alias gb="git branch"
