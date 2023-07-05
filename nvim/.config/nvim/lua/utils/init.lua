@@ -9,8 +9,6 @@ M.servers = {
   "bashls",
   "jsonls",
   "yamlls",
-  "rust_analyzer",
-  -- "csharp_ls",
 }
 
 return M
