@@ -25,6 +25,9 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 -- Close buffer
 keymap("n", "<leader>c", ":bdelete<CR>", opts)
 
+-- Close other windows
+keymap("n", "<leader>o", ":only<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
