@@ -148,6 +148,7 @@ function M.config()
     sources = {
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
+      { name = "crates" },
       { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
