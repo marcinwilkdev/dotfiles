@@ -3,7 +3,7 @@
 	email = marcin.wilk.dev@gmail.com
 
 [core]
-	editor = lvim
+	editor = nvim
   pager = delta
 
 [init]
