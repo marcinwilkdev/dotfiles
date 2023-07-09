@@ -10,6 +10,7 @@ M.opts = {
 
   cscope = {
     skip_picker_for_single_result = true,
+    picker = "telescope",
   }
 }
 
