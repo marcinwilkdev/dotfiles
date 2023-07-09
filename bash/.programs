@@ -1,6 +1,7 @@
 sudo apt install btop
 cargo install fd-find ripgrep exa bat git-delta bob-nvim gitui
 bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
+curl -fsSL https://fnm.vercel.app/install | bash
 
 {
   git clone https://github.com/ronniedroid/getnf.git
