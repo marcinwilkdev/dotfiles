@@ -1,16 +1,16 @@
 local M = {
   "saecki/crates.nvim",
-  tag = "v0.3.0",
-  event = "BufReadPre",
+  commit = "4ce7c51b881e58f1e2f8f437f30e4e583cbac319",
+  event = "BufRead Cargo.toml",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  pin = true,
 }
 
-function M.config()
-  require("crates").setup {
-    null_ls = {
-      enabled = true,
-      name = "crates.nvim",
-    }
+M.opts = {
+  null_ls = {
+    enabled = true,
+    name = "crates.nvim",
   }
-end
+}
 
 return M
