@@ -28,7 +28,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffer
-keymap("n", "<leader>c", ":bdelete<CR>", opts)
+keymap("n", "<leader>c", ":lua require('bufdelete').bufdelete(0)<CR>", opts)
 
 -- Close other windows
 keymap("n", "<leader>o", ":only<CR>", opts)
