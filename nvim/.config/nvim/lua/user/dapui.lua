@@ -35,14 +35,6 @@ function M.config()
         size = 0.33,
         position = "right",
       },
-      {
-        elements = {
-          { id = "repl", size = 0.45 },
-          { id = "console", size = 0.55 },
-        },
-        size = 0.27,
-        position = "bottom",
-      },
     },
     floating = {
       max_height = 0.9,

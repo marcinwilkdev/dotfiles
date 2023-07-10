@@ -61,6 +61,8 @@ keymap("n", "<leader>dn", "<cmd>lua require'dap'.step_over()<cr>", opts)
 keymap("n", "<leader>df", "<cmd>lua require'dap'.step_out()<cr>", opts)
 keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
+keymap("n", "<leader>dk", "<cmd>lua require'dapui'.eval()<cr>", opts)
+keymap("v", "<leader>dk", "<cmd>lua require'dapui'.eval()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
