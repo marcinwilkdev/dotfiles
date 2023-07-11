@@ -107,11 +107,8 @@ M = {
     local keymap = vim.api.nvim_set_keymap
     local opts = { noremap = true }
 
-    keymap("n", "*", "<Nop>", opts)
-    keymap("n", "#", "<Nop>", opts)
-
-    keymap("n", "*", "<cmd>lua require('illuminate').next_reference({wrap=true})<CR>", opts)
-    keymap("n", "#", "<cmd>lua require('illuminate').next_reference({reverse=true,wrap=true})<CR>", opts)
+    keymap("n", "<a-n>", "<cmd>lua require('illuminate').next_reference({wrap=true})<CR>", opts)
+    keymap("n", "<a-p>", "<cmd>lua require('illuminate').next_reference({reverse=true,wrap=true})<CR>", opts)
   end
 }
 
