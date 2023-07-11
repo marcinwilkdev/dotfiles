@@ -1,7 +1,8 @@
 local M = {
   "lukas-reineke/indent-blankline.nvim",
-  commit = "8299fe7703dfff4b1752aeed271c3b95281a952d",
+  tag = "v2.20.7",
   event = "BufReadPre",
+  pin = true,
 }
 
 M.opts = {

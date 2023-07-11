@@ -2,7 +2,8 @@ local M = {
   "iamcco/markdown-preview.nvim",
   tag = "v0.0.10",
   ft = { "markdown" },
-  build = "cd app && npm install"
+  build = "cd app && npm install",
+  pin = true,
 }
 
 function M.config()

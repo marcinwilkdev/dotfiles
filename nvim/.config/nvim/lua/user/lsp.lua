@@ -2,27 +2,24 @@ local M = {
   "neovim/nvim-lspconfig",
   commit = "649137cbc53a044bffde36294ce3160cb18f32c7",
   lazy = true,
-  dependencies = {
-    {
-      "hrsh7th/cmp-nvim-lsp",
-      commit = "0e6b2ed705ddcff9738ec4ea838141654f12eeef",
-    },
-  },
+  dependencies = { "hrsh7th/cmp-nvim-lsp" },
+  pin = true,
 }
 
-local cmp_nvim_lsp = require "cmp_nvim_lsp"
 function M.config()
+  local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
-  local lspconfig = require "lspconfig"
+  local lspconfig = require("lspconfig")
   local on_attach = function(client, bufnr)
     if client.name == "sumneko_lua" then
       client.server_capabilities.documentFormattingProvider = false
     end
 
-    require("helpers").lsp_keymaps(bufnr)
+    require("keymaps").lsp_keymaps(bufnr)
     require("illuminate").on_attach(client)
   end
 
@@ -44,9 +41,9 @@ function M.config()
 
   local signs = {
     { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignWarn",  text = "" },
+    { name = "DiagnosticSignHint",  text = "" },
+    { name = "DiagnosticSignInfo",  text = "" },
   }
 
   for _, sign in ipairs(signs) do
