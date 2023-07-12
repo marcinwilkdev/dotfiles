@@ -51,6 +51,7 @@ Formatters, linters and separately managed LSPs have to be installed manually us
 DAPs have to be installed manually using `:DIInstall <DAP_name>`. You can use `<TAB>` autocomplete. List of configured but not installed DAPs:
 
 - dnetcs
+- ccppr_vsc
 
 ### Clipboard
 

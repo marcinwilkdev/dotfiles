@@ -25,10 +25,31 @@ function M.config()
     dapui.close()
   end
 
+  dap.adapters.cppdbg = {
+    id = "cppdbg",
+    type = "executable",
+    command = vim.fn.stdpath("data") .. "/dapinstall/ccppr_vsc/extension/debugAdapters/bin/OpenDebugAD7",
+  }
+
   dap.adapters.coreclr = {
     type = "executable",
     command = vim.fn.stdpath("data") .. "/dapinstall/dnetcs/netcoredbg/netcoredbg",
     args = { "--interpreter=vscode" },
+  }
+
+  dap.configurations.c = {
+    {
+      name = 'Attach to gdbserver :3333',
+      type = 'cppdbg',
+      request = 'launch',
+      MIMode = 'gdb',
+      miDebuggerServerAddress = 'localhost:3333',
+      miDebuggerPath = '/usr/bin/gdb-multiarch',
+      cwd = '${workspaceFolder}',
+      program = function()
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      end,
+    }
   }
 
   dap.configurations.cs = {
