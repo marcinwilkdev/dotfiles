@@ -1,7 +1,7 @@
 local M = {
   url = "https://github.com/marcinwilkdev/cscope_maps.nvim",
   commit = "47a885c96b80056153d0887a74b5db0f7c6c3346",
-  ft = { "c", "cs" },
+  event = "BufReadPre",
   pin = true,
 }
 
@@ -16,7 +16,6 @@ M.opts = {
 }
 
 function M.config()
-  require("keymaps").cscope_keymaps()
   require("cscope_maps").setup(M.opts)
 end
 
