@@ -16,3 +16,7 @@ alias gl="git log"
 alias glo="git log --oneline"
 alias go="git checkout"
 alias gs="git status"
+
+alias zynqmp_docs="google-chrome ~/dev/docs/zynqmp/*.pdf"
+
+alias lldb="PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages lldb" # fix for lldb packages
