@@ -52,6 +52,7 @@ DAPs have to be installed manually using `:DIInstall <DAP_name>`. You can use `<
 
 - dnetcs
 - ccppr_vsc
+- codelldb
 
 ### Clipboard
 
