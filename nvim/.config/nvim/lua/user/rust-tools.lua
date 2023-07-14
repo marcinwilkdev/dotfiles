@@ -13,4 +13,15 @@ M.opts = {
   }
 }
 
+function M.config()
+  local codelldb_path = vim.fn.stdpath("data") .. "/dapinstall/codelldb/extension/adapter/codelldb"
+  local liblldb_path = vim.fn.stdpath("data") .. "/dapinstall/codelldb/extension/lldb/lib/liblldb.so"
+
+  M.opts.dap = {
+    adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+  }
+
+  require("rust-tools").setup(M.opts)
+end
+
 return M
