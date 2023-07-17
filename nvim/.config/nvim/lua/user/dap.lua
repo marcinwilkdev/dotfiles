@@ -39,16 +39,22 @@ function M.config()
 
   dap.configurations.c = {
     {
-      name = 'Attach to gdbserver :3333',
+      name = 'linux on port 3333',
       type = 'cppdbg',
       request = 'launch',
       MIMode = 'gdb',
       miDebuggerServerAddress = 'localhost:3333',
       miDebuggerPath = '/usr/bin/gdb-multiarch',
       cwd = '${workspaceFolder}',
-      program = function()
-        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-      end,
+      program = vim.fn.getcwd() .. "/vmlinux"
+    },
+    {
+      name = 'tlib',
+      type = 'cppdbg',
+      request = 'attach',
+      processId = require('dap.utils').pick_process,
+      program = "/usr/bin/dotnet",
+      args = { "/home/mwilk/dev/renode-hq/src/renode/output/bin/Debug/net6.0/Renode.dll" },
     }
   }
 
