@@ -8,6 +8,20 @@ local M = {
 function M.config()
   local dap = require("dap")
 
+  vim.fn.jobstart(
+    { "cat", "/proc/sys/kernel/yama/ptrace_scope" },
+    {
+      stdout_buffered = true,
+      on_stdout = function(job_id, data, event)
+        if (event == "stdout") and (data[1] == "1") then
+          print("/proc/sys/kernel/yama/ptrace_scope not configured")
+        end
+
+        vim.fn.jobstop(job_id)
+      end
+    }
+  )
+
   local dap_ui_status_ok, dapui = pcall(require, "dapui")
   if not dap_ui_status_ok then
     return
