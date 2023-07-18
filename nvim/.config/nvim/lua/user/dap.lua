@@ -69,6 +69,13 @@ function M.config()
       processId = require('dap.utils').pick_process,
       program = "/usr/bin/dotnet",
       args = { "/home/mwilk/dev/renode-hq/src/renode/output/bin/Debug/net6.0/Renode.dll" },
+      setupCommands = {
+        {
+          text = "handle SIGXCPU SIG33 SIG34 SIG35 SIG36 SIG37 SIGPWR nostop noprint",
+          description = "Handle signals",
+          ignoreFailures = false
+        }
+      }
     }
   }
 
