@@ -21,6 +21,8 @@ alias gr="git restore"
 alias grs="gr --staged"
 alias gs="git status"
 
+alias readelf="readelf -W"
+
 alias zynqmp_docs="google-chrome ~/dev/docs/zynqmp/*.pdf"
 
 # Fix for lldb
