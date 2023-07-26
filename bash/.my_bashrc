@@ -1,7 +1,5 @@
 export PATH=~/.local/bin:~/.local/share/bob/nvim-bin:~/.local/bin:$PATH
 
-eval "$(atuin init bash --disable-up-arrow)"
-
 alias ls="exa"
 alias find="fd"
 alias grep="rg"
@@ -31,3 +29,5 @@ alias zynqmp_docs="google-chrome ~/dev/docs/zynqmp/*.pdf"
 
 # Fix for lldb
 export PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages
+
+source /usr/share/doc/fzf/examples/key-bindings.bash
