@@ -17,9 +17,12 @@ alias gds="gd --staged"
 alias gl="git log"
 alias glo="gl --oneline"
 alias go="git checkout"
+alias gp="git push"
 alias gr="git restore"
 alias grs="gr --staged"
 alias gs="git status"
+alias gsu="git submodule update"
+alias gsur="gsu --recursive"
 
 alias readelf="readelf -W"
 
