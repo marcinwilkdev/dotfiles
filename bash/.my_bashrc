@@ -1,3 +1,4 @@
+#!/bin/bash
 export PATH=~/.local/bin:~/.local/share/bob/nvim-bin:~/.local/bin:$PATH
 
 alias ls="exa"
@@ -15,7 +16,7 @@ alias gds="gd --staged"
 alias gl="git log"
 alias glo="gl --oneline"
 alias go="git checkout"
-alias gp="git push"
+alias gpo="git push origin"
 alias gr="git restore"
 alias grs="gr --staged"
 alias gs="git status"
@@ -33,3 +34,7 @@ alias zynqmp_docs="google-chrome ~/dev/docs/zynqmp/*.pdf"
 export PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
+
+ff () {
+  $1 `fzf`
+}
