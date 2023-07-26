@@ -22,6 +22,8 @@ alias gs="git status"
 alias gsu="git submodule update"
 alias gsur="gsu --recursive"
 
+alias gbs="go \`gb | fzf\`"
+
 alias readelf="readelf -W"
 alias gdb_tlib="gdb -p `ps aux | grep Renode.dll | grep -v rg | awk '{ print $2 }'` -ex 'handle SIGXCPU SIG33 SIG34 SIG35 SIG36 SIG37 SIGPWR nostop noprint'"
 
