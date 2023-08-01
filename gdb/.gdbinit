@@ -10,9 +10,21 @@ define dmesg
         end
         echo "\n
 end
+
 document dmesg
 dmesg __log_buf log_start log_end
 Print the content of the kernel message buffer
+end
+
+define renote
+  disconnect
+  target remote :3333
+  continue
+end
+
+define rerenote
+  disconnect
+  renote
 end
 
 set history save
