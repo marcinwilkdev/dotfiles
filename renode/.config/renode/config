@@ -1,0 +1,29 @@
+[general]
+terminal = Termsharp
+collapse-repeated-log-entries = True
+compiler-cache-enabled = False
+serialization-mode = Generated
+use-synchronous-logging = False
+always-log-machine-name = False
+log-history-limit = 1000
+history-path = /home/mwilk/.config/renode/history
+
+[monitor]
+consume-exceptions-from-command = True
+break-script-on-exception = True
+number-format = Hexadecimal
+
+[termsharp]
+append-CR-to-LF = True
+font-face = JetBrainsMono Nerd Font Mono
+font-size = 18
+window-width = 1280
+window-height = 1440
+window-offset-x = 1280
+window-offset-y = 0
+
+[file-fetcher]
+calculate-checksum = True
+
+[file-system]
+use-cow = False
