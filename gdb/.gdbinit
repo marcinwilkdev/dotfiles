@@ -17,7 +17,6 @@ Print the content of the kernel message buffer
 end
 
 define renote
-  disconnect
   target remote :3333
   continue
 end
