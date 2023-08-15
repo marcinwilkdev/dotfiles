@@ -1,9 +1,26 @@
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-sudo pacman -S btop fzf
-cargo install fd-find ripgrep exa bat git-delta bob-nvim gitui du-dust
+pacstrap -K /mnt base linux linux-firmware iwd vi man-db man-pages texinfo \
+grub efibootmgr intel-ucode sudo xorg xf86-video-intel mesa vulkan-intel \
+pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse sof-firmware \
+zsh zsh-completions bolt stow unzip xclip btop fzf
+
+mkdir -p dev/aur && \
+cd dev/aur && \
+git clone https://aur.archlinux.org/dwm.git && \
+git clone https://aur.archlinux.org/st.git && \
+git clone https://aur.archlinux.org/dmenu-git.git && \
+git clone https://aur.archlinux.org/google-chrome.git && \
+pushd dwm && makepkg && sudo pacman -U <package>.tar.zst && \
+pushd st && makepkg && sudo pacman -U <package>.tar.zst && \
+pushd dmenu-git && makepkg && sudo pacman -U <package>.tar.zst && \
+pushd google-chrome && makepkg && sudo pacman -U <package>.tar.zst
+
+{
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  cargo install fd-find ripgrep exa bat git-delta bob-nvim gitui du-dust
+}
 {
   wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
   nvm install node
   nvm use node
+  npm install -g neovim
 }
-npm install -g neovim
