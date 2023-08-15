@@ -72,3 +72,12 @@ wpctl set-default <id>
 
 11. Display setup:
 xrandr --output eDP-1 --off --output DP-1-2 --primary --auto --output DP-1-1 --auto --right-of DP-1-2
+
+12. Font configuration (to be implemented as AUR package):
+mkdir -p ~/.local/share/fonts && \
+cd ~/.local/share/fonts && \
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip && \
+unzip JetBrainsMono.zip && \
+rm JetBrainsMono.zip && \
+mkfontscale /home/marcin/.local/share/fonts && \
+mkfontdir /home/marcin/.local/share/fonts
