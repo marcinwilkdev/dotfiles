@@ -1,0 +1,78 @@
+1. Download iso from arch site and dd it into usb drive.
+2. Boot from UEFI arch pendrive option.
+3. setfont ter-132b
+4. Connect to the internet using iwctl.
+5. timedatectl
+6. cfdisk - partition disk into 1GB boot, 1GB swap and rest linux partition.
+7. mkfs.btrfs <root>, mkswap <swap>, mkfs.fat -F 32 <boot> - to create filesystems.
+8. mount <root> /mnt, mount <boot> /mnt/boot, swapon <swap>
+9. reflector > /etc/pacmand.d/mirrorlist
+10. pacstrap -K /mnt base linux linux-firmware iwd vi man-db man-pages texinfo
+11. genfstab -U /mnt >> /mnt/etc/fstab
+12. arch-chroot /mnt
+13. ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
+14. hwclock --systohc
+15. Uncomment en_US.UTF-8 in /etc/locale.gen and locale-gen
+16. Create /etc/locale.conf with LANG=en_US.UTF-8
+17. Create /etc/hostname with marcin-arch
+18. passwd
+Bootloader:
+1. pacman -S grub efibootmgr
+2. grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+3. grub-mkconfig -o /boot/grub/grub.cfg
+4. pacman -S intel-ucode
+5. exit && umount -R /mnt && reboot
+After booting:
+1. pacman -S sudo
+2. useradd -m marcin
+3. passwd marcin
+4. usermod -a -G wheel marcin
+Reboot into marcin:
+1. Uncomment VerbosePkgLists and ParallelDownloads in /etc/pacman.conf
+Graphics:
+1. sudo pacman -S xorg xf86-video-intel mesa vulkan-intel
+2. mkdir -p dev/aur
+3. cd dev/aur
+4. git clone https://aur.archlinux.org/dwm.git
+5. git clone https://aur.archlinux.org/st.git
+6. git clone https://aur.archlinux.org/dmenu-git.git
+7. git clone https://aur.archlinux.org/google-chrome.git
+8. Install above by cd into them, makepkg and pacman -U <package>.tar.zst
+9. sudo pacman -S ttf-jetbrains-mono
+10. startx on login to go into xorg
+
+Shell:
+1. chsh -s /usr/bin/zsh
+
+Keyboard config:
+1. /etc/X11/xorg.conf.d/00-keyboard.conf
+Section "InputClass"
+	Identifier "system-keyboard"
+	MatchIsKeyboard "on"
+	Option "XkbLayout" "pl,us"
+	Option "XkbOptions" "caps:swapescape"
+EndSection
+
+Touchpad config:
+1. /etc/X11/xorg.conf.d/30-touchpad.conf
+Section "InputClass"
+	Identifier "touchpad"
+	Driver "libinput"
+	Option "NaturalScrolling" "true"
+	Option "ClickMethod" "clickfinger"
+EndSection
+
+Thunderbolt dock:
+1. boltctl // check status
+
+Sound setup:
+1. sudo systemctl --user --now enable pipewire pipewire-pulse wireplumber // enable sound services
+2. wpctl status // check output device
+3. wpctl set-default <id> // set output device
+
+Display setup:
+1. xrandr // to see devices
+2. xrandr --output eDP-1 --off --output DP-1-2 --primary --auto --output DP-1-1 --auto --right-of DP-1-2 // docked setup
+
+Network setup:
+1. use iwgtk for network status icon

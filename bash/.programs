@@ -1,9 +1,0 @@
-sudo apt install btop fzf
-cargo install fd-find ripgrep exa bat git-delta bob-nvim gitui
-curl -fsSL https://fnm.vercel.app/install | bash
-
-{
-  git clone https://github.com/ronniedroid/getnf.git
-  cd getnf
-  ./install.sh
-}
