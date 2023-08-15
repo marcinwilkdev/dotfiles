@@ -47,5 +47,13 @@ ff () {
   $1 `fzf`
 }
 
+export PATH=~/.local/bin:~/.local/share/bob/nvim-bin:~/.local/bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+# Fix for lldb
+export PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages
+
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
