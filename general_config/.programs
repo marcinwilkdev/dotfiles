@@ -1,0 +1,27 @@
+pacstrap -K /mnt `cat .pacman_programs`
+npm install `cat .npm_programs`
+
+INTEL GRAPHICS:
+pacman -S `cat .intel_graphics_programs`
+
+NVIDIA GRAPHICS:
+pacman -S `cat .nvidia_graphics_programs`
+
+mkdir -p dev/aur && \
+cd dev/aur && \
+git clone https://github.com/marcinwilkdev/dwm && \
+git clone https://github.com/marcinwilkdev/st && \
+git clone https://github.com/marcinwilkdev/slstatus && \
+git clone https://aur.archlinux.org/dmenu-git.git && \
+git clone https://aur.archlinux.org/google-chrome.git && \
+git clone https://aur.archlinux.org/slock-git.git && \
+
+makepkg && sudo pacman -U <package>.tar.zst
+
+{
+  `cat .install_rustup`
+  cargo install `cat .cargo_programs`
+  bob install stable && bob use stable
+}
+
+`cat .install_ohmyzsh`
