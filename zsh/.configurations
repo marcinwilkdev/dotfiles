@@ -15,7 +15,7 @@ BOOT_PATH=<boot> && \
 mkfs.btrfs $ROOT_PATH && mkswap $SWAP_PATH && mkfs.fat -F 32 $BOOT_PATH && \
 mount $ROOT_PATH /mnt && mount $BOOT_PATH /mnt/boot && swapon $SWAP_PATH && \
 reflector > /etc/pacmand.d/mirrorlist && \
-pacstrap -K /mnt base linux linux-firmware iwd vi man-db man-pages texinfo <all_programs> && \
+pacstrap -K /mnt base linux linux-firmware iwd vi vim man-db man-pages texinfo <all_programs> && \
 genfstab -U /mnt >> /mnt/etc/fstab && \
 arch-chroot /mnt
 
@@ -36,9 +36,22 @@ umount -R /mnt && \
 reboot
 
 5. First boot:
+/etc/systemd/network/25-wireless.network
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+
+Edit /etc/systemd/resolved.conf appropriately
+
+systemctl enable --now iwd &&
+systemctl enable --now systemd-networkd &&
+systemctl enable --now systemd-resolved &&
 useradd -m marcin && \
 passwd marcin && \
-usermod -a -G wheel marcin
+usermod -a -G wheel marcin && \
+visudo // uncomment wheel accesses
 
 6. Relog into marcin:
 - uncomment VerbosePkgLists and ParallelDownloads in /etc/pacman.conf
