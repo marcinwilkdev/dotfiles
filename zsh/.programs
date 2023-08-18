@@ -1,8 +1,14 @@
 pacstrap -K /mnt base linux linux-firmware iwd vi man-db man-pages texinfo \
-grub efibootmgr intel-ucode sudo xorg xf86-video-intel mesa vulkan-intel \
-pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse sof-firmware \
-zsh zsh-completions bolt stow unzip xclip btop fzf openssh git base-devel \
-gtk3 libcups libxss nss ttf-liberation xdg-utils curl xorg-xinit
+grub efibootmgr intel-ucode sudo xorg pipewire wireplumber pipewire-audio \
+pipewire-alsa pipewire-pulse sof-firmware zsh zsh-completions bolt stow \
+unzip xclip btop fzf openssh git base-devel gtk3 libcups libxss nss \
+ttf-liberation xdg-utils curl xorg-xinit wget
+
+INTEL GRAPHICS:
+pacman -S xf86-video-intel mesa vulkan-intel
+
+NVIDIA GRAPHICS:
+pacman -S nvidia nvidia-utils nvidia-settings
 
 mkdir -p dev/aur && \
 cd dev/aur && \
@@ -18,7 +24,10 @@ pushd google-chrome && makepkg && sudo pacman -U <package>.tar.zst
 {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   cargo install fd-find ripgrep exa bat git-delta bob-nvim gitui du-dust
+  bob install stable
+  bob use stable
 }
+
 {
   wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
   nvm install node

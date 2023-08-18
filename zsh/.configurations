@@ -57,7 +57,10 @@ visudo // uncomment wheel accesses
 - uncomment VerbosePkgLists and ParallelDownloads in /etc/pacman.conf
 - chsh -s /usr/bin/zsh
 
-7. Keyboard config:
+7. Graphics config:
+- for nvidia you have to follow guide at https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
+
+8. Keyboard config:
 /etc/X11/xorg.conf.d/00-keyboard.conf
 Section "InputClass"
 	Identifier "system-keyboard"
@@ -66,7 +69,23 @@ Section "InputClass"
 	Option "XkbOptions" "caps:swapescape"
 EndSection
 
-8. Touchpad config:
+9. Sound setup:
+systemctl --user --now enable pipewire pipewire-pulse wireplumber && \
+wpctl status
+wpctl set-default <id>
+
+10. Font configuration (to be implemented as AUR package):
+mkdir -p ~/.local/share/fonts && \
+cd ~/.local/share/fonts && \
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip && \
+unzip JetBrainsMono.zip && \
+rm JetBrainsMono.zip && \
+mkfontscale /home/marcin/.local/share/fonts && \
+mkfontdir /home/marcin/.local/share/fonts
+
+Laptop specific:
+
+1. Touchpad config:
 /etc/X11/xorg.conf.d/30-touchpad.conf
 Section "InputClass"
 	Identifier "touchpad"
@@ -75,22 +94,5 @@ Section "InputClass"
 	Option "ClickMethod" "clickfinger"
 EndSection
 
-9. Thunderbolt dock config:
+2. Thunderbolt dock config:
 boltctl
-
-10. Sound setup:
-sudo systemctl --user --now enable pipewire pipewire-pulse wireplumber && \
-wpctl status
-wpctl set-default <id>
-
-11. Display setup:
-xrandr --output eDP-1 --off --output DP-1-2 --primary --auto --output DP-1-1 --auto --right-of DP-1-2
-
-12. Font configuration (to be implemented as AUR package):
-mkdir -p ~/.local/share/fonts && \
-cd ~/.local/share/fonts && \
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip && \
-unzip JetBrainsMono.zip && \
-rm JetBrainsMono.zip && \
-mkfontscale /home/marcin/.local/share/fonts && \
-mkfontdir /home/marcin/.local/share/fonts
