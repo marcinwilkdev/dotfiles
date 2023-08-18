@@ -6,7 +6,7 @@ zsh zsh-completions bolt stow unzip xclip btop fzf
 mkdir -p dev/aur && \
 cd dev/aur && \
 git clone https://aur.archlinux.org/dwm.git && \
-git clone https://aur.archlinux.org/st.git && \
+git clone https://github.com/marcinwilkdev/st && \
 git clone https://aur.archlinux.org/dmenu-git.git && \
 git clone https://aur.archlinux.org/google-chrome.git && \
 pushd dwm && makepkg && sudo pacman -U <package>.tar.zst && \
