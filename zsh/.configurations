@@ -83,6 +83,12 @@ rm JetBrainsMono.zip && \
 mkfontscale /home/marcin/.local/share/fonts && \
 mkfontdir /home/marcin/.local/share/fonts
 
+11. Steam configuration:
+- enable multilib section in /etc/pacman.conf
+- pacman -Syu
+- ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
+- vulkaninfo // to check that vulkan is working
+
 Laptop specific:
 
 1. Touchpad config:
