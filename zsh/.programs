@@ -3,7 +3,7 @@ grub efibootmgr intel-ucode sudo xorg pipewire wireplumber pipewire-audio \
 pipewire-alsa pipewire-pulse sof-firmware zsh zsh-completions bolt stow \
 unzip xclip btop fzf openssh git base-devel gtk3 libcups libxss nss \
 ttf-liberation xdg-utils curl xorg-xinit wget lib32-systemd vulkan-icd-loader \
-lib32-vulkan-icd-loader vulkan-tools steam ttf-dejavu maim
+lib32-vulkan-icd-loader vulkan-tools steam ttf-dejavu maim xbindkeys
 
 INTEL GRAPHICS:
 pacman -S xf86-video-intel mesa lib32-mesa vulkan-intel

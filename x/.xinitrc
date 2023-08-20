@@ -1,2 +1,3 @@
+xbindkeys &
 slstatus &
 exec dwm
