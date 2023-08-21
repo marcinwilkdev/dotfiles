@@ -39,6 +39,11 @@ alias gsu="git submodule update"
 alias gsur="gsu --recursive"
 alias gbs="go \`gb | fzf\`"
 
+alias cdhq="cd ~/dev/renode-hq"
+alias cdrenode="cd ~/dev/renode-hq/src/renode"
+alias cdinfra="cd ~/dev/renode-hq/src/renode/src/Infrastructure"
+alias cdtlib="cd ~/dev/renode-hq/src/renode/src/Infrastructure/src/Emulator/Cores/tlib"
+
 alias readelf="readelf -W"
 alias gdb_tlib="gdb -p `ps aux | grep Renode.dll | grep -v rg | awk '{ print $2 }'` -ex 'handle SIGXCPU SIG33 SIG34 SIG35 SIG36 SIG37 SIGPWR nostop noprint'"
 alias zynqmp_docs="google-chrome ~/dev/docs/zynqmp/*.pdf"
