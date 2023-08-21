@@ -21,7 +21,7 @@ ZSH_THEME="simple"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fd fzf ripgrep)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,16 +60,9 @@ alias readelf="readelf -W"
 alias gdb_tlib="gdb -p `ps aux | grep Renode.dll | grep -v rg | awk '{ print $2 }'` -ex 'handle SIGXCPU SIG33 SIG34 SIG35 SIG36 SIG37 SIGPWR nostop noprint'"
 alias zynqmp_docs="google-chrome ~/dev/docs/zynqmp/*.pdf"
 
-ff () {
-  $1 `fzf`
-}
-
 export PATH=~/.local/bin:~/.local/share/bob/nvim-bin:~/.local/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 export PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages # fix for lldb
-
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
