@@ -1,19 +1,31 @@
-# The following lines were added by compinstall
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="simple"
 
-zstyle ':completion:*' completer _complete _ignored
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}'
-zstyle :compinstall filename '/home/marcin/.zshrc'
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
-setopt extendedglob notify
-bindkey -v
-# End of lines configured by zsh-newuser-install
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
 
 alias ls="exa"
 alias find="fd"
@@ -54,8 +66,7 @@ ff () {
 
 export PATH=~/.local/bin:~/.local/share/bob/nvim-bin:~/.local/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
-# Fix for lldb
-export PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages
+export PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages # fix for lldb
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
