@@ -30,12 +30,20 @@ passwd
 
 4. Setup GRUB:
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB && \
+# grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable && \ // may be needed
 grub-mkconfig -o /boot/grub/grub.cfg && \
 exit && \
 umount -R /mnt && \
 reboot
 
 5. First boot:
+/etc/systemd/network/20-wireless.network
+[Match]
+Name=en0
+
+[Network]
+DHCP=yes
+
 /etc/systemd/network/25-wireless.network
 [Match]
 Name=wlan0
