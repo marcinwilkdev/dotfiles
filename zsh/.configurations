@@ -97,6 +97,9 @@ mkfontdir /home/marcin/.local/share/fonts
 - ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
 - vulkaninfo // to check that vulkan is working
 
+12. ssh:
+sudo systemctl --now enable sshd
+
 Laptop specific:
 
 1. Touchpad config:
