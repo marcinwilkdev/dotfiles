@@ -58,7 +58,7 @@ function M.config()
       request = 'launch',
       MIMode = 'gdb',
       miDebuggerServerAddress = 'localhost:3333',
-      miDebuggerPath = '/usr/bin/gdb-multiarch',
+      miDebuggerPath = '/usr/bin/aarch64-linux-gnu-gdb',
       cwd = '${workspaceFolder}',
       program = vim.fn.getcwd() .. "/vmlinux"
     },
