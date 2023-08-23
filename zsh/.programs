@@ -6,7 +6,8 @@ ttf-liberation xdg-utils curl xorg-xinit wget lib32-systemd vulkan-icd-loader \
 lib32-vulkan-icd-loader vulkan-tools steam maim xbindkeys python-pip \
 ruby imlib2 aarch64-linux-gnu-gcc aarch64-linux-gnu-gdb bc cpio rsync mono \
 dotnet-sdk dotnet-runtime dotnet-runtime-6.0 gtk-sharp-2 cscope \
-nodejs-lts-hydrogen npm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+nodejs-lts-hydrogen npm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra \
+mupdf zathura zathura-pdf-mupdf
 
 npm install neovim
 
