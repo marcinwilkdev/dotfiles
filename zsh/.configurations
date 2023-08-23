@@ -37,12 +37,14 @@ umount -R /mnt && \
 reboot
 
 5. First boot:
-/etc/systemd/network/20-wireless.network
+/etc/systemd/network/20-wired.network
 [Match]
 Name=en0
 
 [Network]
-DHCP=yes
+Address=10.9.8.14/24
+Gateway=10.9.8.254
+DNS=10.9.8.254
 
 /etc/systemd/network/25-wireless.network
 [Match]
@@ -82,22 +84,13 @@ systemctl --user --now enable pipewire pipewire-pulse wireplumber && \
 wpctl status
 wpctl set-default <id>
 
-10. Font configuration (to be implemented as AUR package):
-mkdir -p ~/.local/share/fonts && \
-cd ~/.local/share/fonts && \
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip && \
-unzip JetBrainsMono.zip && \
-rm JetBrainsMono.zip && \
-mkfontscale /home/marcin/.local/share/fonts && \
-mkfontdir /home/marcin/.local/share/fonts
-
-11. Steam configuration:
+10. Steam configuration:
 - enable multilib section in /etc/pacman.conf
 - pacman -Syu
 - ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
 - vulkaninfo // to check that vulkan is working
 
-12. ssh:
+11. ssh:
 sudo systemctl --now enable sshd
 
 Laptop specific:
