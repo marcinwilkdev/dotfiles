@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="simple"
+ZSH_THEME="cypher"
 CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
