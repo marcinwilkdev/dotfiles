@@ -5,7 +5,9 @@ unzip xclip btop fzf openssh git base-devel gtk3 libcups libxss nss \
 ttf-liberation xdg-utils curl xorg-xinit wget lib32-systemd vulkan-icd-loader \
 lib32-vulkan-icd-loader vulkan-tools steam ttf-dejavu maim xbindkeys python-pip \
 ruby imlib2 aarch64-linux-gnu-gcc aarch64-linux-gnu-gdb bc cpio rsync mono \
-dotnet-sdk dotnet-runtime dotnet-runtime-6.0 gtk-sharp-2 cscope
+dotnet-sdk dotnet-runtime dotnet-runtime-6.0 gtk-sharp-2 cscope nodejs-lts-hydrogen npm
+
+npm install neovim
 
 INTEL GRAPHICS:
 pacman -S xf86-video-intel mesa lib32-mesa vulkan-intel
@@ -29,13 +31,6 @@ makepkg && sudo pacman -U <package>.tar.zst // in all of them
   cargo install fd-find ripgrep exa bat git-delta bob-nvim gitui du-dust
   bob install stable
   bob use stable
-}
-
-{
-  wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
-  nvm install node
-  nvm use node
-  npm install -g neovim
 }
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

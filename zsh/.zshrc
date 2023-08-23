@@ -19,7 +19,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fd fzf ripgrep)
+plugins=(git fd ripgrep)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -61,6 +61,3 @@ alias zynqmp_docs="google-chrome ~/dev/docs/zynqmp/*.pdf"
 export PATH=~/.local/bin:~/.local/share/bob/nvim-bin:~/.local/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 export PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages # fix for lldb
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
