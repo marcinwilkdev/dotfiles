@@ -93,6 +93,15 @@ wpctl set-default <id>
 11. ssh:
 sudo systemctl --now enable sshd
 
+12. Font configuration (to be implemented as AUR package):
+mkdir -p ~/.local/share/fonts && \
+cd ~/.local/share/fonts && \
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip && \
+unzip JetBrainsMono.zip && \
+rm JetBrainsMono.zip && \
+mkfontscale /home/marcin/.local/share/fonts && \
+mkfontdir /home/marcin/.local/share/fonts
+
 Laptop specific:
 
 1. Touchpad config:
