@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 agkozak/agkozak-zsh-prompt
+Tarrasch/zsh-bd
 jeffreytse/zsh-vi-mode
 
 ~/.aliases
