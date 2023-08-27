@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+~/.aliases
+
+ohmyzsh/ohmyzsh path:plugins/fzf
