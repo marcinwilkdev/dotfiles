@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+agkozak/agkozak-zsh-prompt
+jeffreytse/zsh-vi-mode
+
 ~/.aliases
 
 ohmyzsh/ohmyzsh path:plugins/fzf
