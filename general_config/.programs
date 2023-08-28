@@ -1,4 +1,5 @@
 pacstrap -K /mnt `cat .pacman_programs`
+yay -S `cat .yay_programs`
 npm install `cat .npm_programs`
 
 INTEL GRAPHICS:
