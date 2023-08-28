@@ -2,8 +2,6 @@
 
 agkozak/agkozak-zsh-prompt
 Tarrasch/zsh-bd
-jeffreytse/zsh-vi-mode
+Atlas34/fzf-plugin
 
 ~/.aliases
-
-ohmyzsh/ohmyzsh path:plugins/fzf
