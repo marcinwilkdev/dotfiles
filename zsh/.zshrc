@@ -1,7 +1,20 @@
-AGKOZAK_MULTILINE=0
+# The following lines were added by compinstall
 
-export HISTFILE=~/.zsh_history
-export HISTSIZE=1000000000
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' matcher-list ''
+zstyle :compinstall filename '/home/mwilk/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000000
+SAVEHIST=1000000000
+bindkey -v
+# End of lines configured by zsh-newuser-install
+
+AGKOZAK_MULTILINE=0
 
 setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
