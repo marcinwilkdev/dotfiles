@@ -22,11 +22,10 @@ function M.config()
   }
 
   dashboard.section.buttons.val = {
-    dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+    dashboard.button("f", " " .. " Find file", ":Files<CR>"),
     dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-    dashboard.button("p", " " .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
-    dashboard.button("r", "󰄉 " .. " Recent files", ":Telescope oldfiles <CR>"),
-    dashboard.button("t", " " .. " Find text", ":Telescope live_grep <CR>"),
+    dashboard.button("r", "󰄉 " .. " Recent files", ":History<CR>"),
+    dashboard.button("t", " " .. " Find text", ":Rg<CR>"),
     dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
     dashboard.button("q", " " .. " Quit", ":qa<CR>"),
   }

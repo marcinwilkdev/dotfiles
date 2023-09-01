@@ -45,11 +45,10 @@ M = {
     -- NvimTree
     keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
-    -- Telescope
-    keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-    keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-    keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-    keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+    -- Fzf
+    keymap("n", "<leader>ff", ":Files<CR>", opts)
+    keymap("n", "<leader>ft", ":RG<CR>", opts)
+    keymap("n", "<C-r>", ":History:<CR>", opts)
 
     -- Comment
     keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
@@ -66,9 +65,6 @@ M = {
     keymap("n", "<leader>dk", "<cmd>lua require('dapui').eval()<cr>", opts)
     keymap("v", "<leader>dk", "<cmd>lua require('dapui').eval()<cr>", opts)
     keymap("n", "<leader>dt", "<cmd>lua require('dap').terminate()<cr>", opts)
-
-    -- Lsp
-    keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
   end,
 
   cscope_keymaps = function()
@@ -81,6 +77,23 @@ M = {
     keymap(bufnr, "n", "gf", "<cmd>lua require('cscope_maps').cscope_prompt('f', vim.fn.expand('<cword>'))<CR>", opts)
     keymap(bufnr, "n", "gr", "<cmd>lua require('cscope_maps').cscope_prompt('s', vim.fn.expand('<cword>'))<CR>", opts)
     keymap(bufnr, "n", "gt", "<cmd>lua require('cscope_maps').cscope_prompt('t', vim.fn.expand('<cword>'))<CR>", opts)
+  end,
+
+  omnisharp_keymaps = function()
+    local opts = { noremap = true, silent = true }
+    local keymap = vim.api.nvim_buf_set_keymap
+
+    local bufnr = vim.api.nvim_get_current_buf()
+    keymap(bufnr, "n", "gd", "<cmd>OmniSharpGotoDefinition<CR>", opts)
+    keymap(bufnr, "n", "K",  "<cmd>OmniSharpDocumentation<CR>", opts)
+    keymap(bufnr, "n", "gI", "<cmd>OmniSharpFindImplementations<CR>", opts)
+    keymap(bufnr, "n", "gr", "<cmd>OmniSharpFindUsages<CR>", opts)
+    keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    keymap(bufnr, "n", "<leader>la", "<cmd>OmniSharpGetCodeActions<cr>", opts)
+    keymap(bufnr, "n", "<leader>lj", "<cmd>OmniSharpNavigateDown<cr>", opts)
+    keymap(bufnr, "n", "<leader>lk", "<cmd>OmniSharpNavigateUp<cr>", opts)
+    keymap(bufnr, "n", "<leader>lr", "<cmd>OmniSharpRename<cr>", opts)
+    keymap(bufnr, "n", "<leader>lf", "<cmd>OmniSharpCodeFormat<cr>", opts)
   end,
 
   lsp_keymaps = function(bufnr)
@@ -101,6 +114,7 @@ M = {
     keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
     keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+    keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
   end,
 
   illuminate_keymaps = function()

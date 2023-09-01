@@ -1,1 +1,1 @@
-require("keymaps").cscope_keymaps()
+require("keymaps").omnisharp_keymaps()
