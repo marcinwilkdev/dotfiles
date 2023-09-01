@@ -45,6 +45,9 @@ M.opts = {
     mru = { limit = 10, icon = '󰄉 ', label = 'Recent files', action = 'History' },
     footer = {},
   },
+  hide = {
+    tabline = false,
+  }
 }
 
 return M
