@@ -48,7 +48,7 @@ M = {
     -- Fzf
     keymap("n", "<leader>ff", ":Files<CR>", opts)
     keymap("n", "<leader>ft", ":RG<CR>", opts)
-    keymap("n", "<C-r>", ":History:<CR>", opts)
+    keymap("n", "<S-C-r>", ":History:<CR>", opts)
 
     -- Comment
     keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
