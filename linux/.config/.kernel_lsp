@@ -1,0 +1,6 @@
+make CC=clang xilinx_zynqmp_defconfig && \
+make CC=clang -j$(nproc) && \
+scripts/clang-tools/gen_compile_commands.py
+
+# this may not properly work with debugging so we have to compile
+# separate build for running
