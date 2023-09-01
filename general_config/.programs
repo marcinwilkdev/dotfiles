@@ -24,3 +24,6 @@ makepkg && sudo pacman -U <package>.tar.zst
   cargo install `cat .cargo_programs`
   bob install stable && bob use stable
 }
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
