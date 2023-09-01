@@ -2,18 +2,13 @@ local M = {
   "neovim/nvim-lspconfig",
   commit = "649137cbc53a044bffde36294ce3160cb18f32c7",
   lazy = true,
-  dependencies = { "hrsh7th/cmp-nvim-lsp" },
   pin = true,
 }
 
 function M.config()
-  local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
-
   local lspconfig = require("lspconfig")
+  local coq = require("coq")
+
   local on_attach = function(client, bufnr)
     if client.name == "sumneko_lua" then
       client.server_capabilities.documentFormattingProvider = false
@@ -36,7 +31,7 @@ function M.config()
       Opts = vim.tbl_deep_extend("force", conf_opts, Opts)
     end
 
-    lspconfig[server].setup(Opts)
+    lspconfig[server].setup(coq.lsp_ensure_capabilities(Opts))
   end
 
   local signs = {
