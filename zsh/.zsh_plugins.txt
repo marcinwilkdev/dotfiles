@@ -2,6 +2,5 @@
 
 agkozak/agkozak-zsh-prompt
 Tarrasch/zsh-bd
-Atlas34/fzf-plugin
 
 ~/.aliases

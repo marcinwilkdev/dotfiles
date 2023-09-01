@@ -25,3 +25,5 @@ setopt HIST_IGNORE_ALL_DUPS
 
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 antidote load
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

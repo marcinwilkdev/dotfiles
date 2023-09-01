@@ -1,6 +1,6 @@
 . "$HOME/.cargo/env"
 
-export PATH=~/.local/bin:~/.local/share/bob/nvim-bin:~/.local/bin:$PATH
+export PATH=~/.local/bin:~/.local/share/bob/nvim-bin:~/.local/bin:$PATH:~/.fzf/bin
 export PYTHONPATH=/usr/lib/llvm-14/lib/python3.10/dist-packages # fix for lldb
 
 export HISTFILE=~/.histfile
