@@ -10,12 +10,13 @@ pacman -S `cat .nvidia_graphics_programs`
 
 mkdir -p dev/aur && \
 cd dev/aur && \
-git clone https://github.com/marcinwilkdev/dwm && \
-git clone https://github.com/marcinwilkdev/st && \
-git clone https://github.com/marcinwilkdev/slstatus && \
+git clone git@github.com:marcinwilkdev/dwm.git && \
+git clone git@github.com:marcinwilkdev/st.git && \
+git clone git@github.com:marcinwilkdev/slstatus.git && \
 git clone https://aur.archlinux.org/dmenu-git.git && \
 git clone https://aur.archlinux.org/google-chrome.git && \
 git clone https://aur.archlinux.org/slock-git.git && \
+git clone git@github.com:marcinwilkdev/nsxiv.git
 
 makepkg && sudo pacman -U <package>.tar.zst
 
