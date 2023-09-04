@@ -14,25 +14,23 @@ local diagnostics = {
   sources = { "nvim_diagnostic" },
   sections = { "error", "warn" },
   symbols = { error = " ", warn = " " },
-  colored = false,
   always_visible = true,
 }
 
 local diff = {
   "diff",
-  colored = false,
   symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
   cond = hide_in_width,
-}
-
-local filetype = {
-  "filetype",
-  icons_enabled = false,
 }
 
 local location = {
   "location",
   padding = 0,
+}
+
+local filename = {
+  "filename",
+  path = 1,
 }
 
 M.opts = {
@@ -42,14 +40,14 @@ M.opts = {
     theme = "auto",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
-    disabled_filetypes = { "alpha", "dashboard" },
+    disabled_filetypes = { "dashboard" },
     always_divide_middle = true,
   },
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch" },
-    lualine_c = { diagnostics },
-    lualine_x = { diff, filetype },
+    lualine_c = { diagnostics, filename},
+    lualine_x = { diff, "filetype" },
     lualine_y = { location },
     lualine_z = { "progress" },
   },

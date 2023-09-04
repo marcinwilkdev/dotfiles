@@ -7,7 +7,7 @@ local M = {
 
 function M.config()
   local illuminate = require("illuminate")
-  vim.g.Illuminate_ftblacklist = { "alpha", "NvimTree" }
+  vim.g.Illuminate_ftblacklist = { "dashboard", "NvimTree" }
 
   require("keymaps").illuminate_keymaps()
 
