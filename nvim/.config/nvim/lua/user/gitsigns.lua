@@ -35,6 +35,9 @@ M.opts = {
     row = 0,
     col = 1,
   },
+  on_attach = function(bufnr)
+    require("keymaps").gitsigns_keymaps(bufnr)
+  end
 }
 
 return M
