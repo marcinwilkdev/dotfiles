@@ -27,3 +27,5 @@ calculate-checksum = True
 
 [file-system]
 use-cow = False
+[plugins]
+enabled-plugins = 
