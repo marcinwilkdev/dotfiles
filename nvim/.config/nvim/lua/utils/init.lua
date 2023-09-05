@@ -4,7 +4,8 @@ M.servers = {
   "lua_ls",
   "pyright",
   "bashls",
-  "clangd"
+  "clangd",
+  "omnisharp"
 }
 
 return M
