@@ -79,23 +79,6 @@ M = {
     keymap(bufnr, "n", "gt", "<cmd>lua require('cscope_maps').cscope_prompt('t', vim.fn.expand('<cword>'))<CR>", opts)
   end,
 
-  omnisharp_keymaps = function()
-    local opts = { noremap = true, silent = true }
-    local keymap = vim.api.nvim_buf_set_keymap
-
-    local bufnr = vim.api.nvim_get_current_buf()
-    keymap(bufnr, "n", "gd", "<cmd>OmniSharpGotoDefinition<CR>", opts)
-    keymap(bufnr, "n", "K",  "<cmd>OmniSharpDocumentation<CR>", opts)
-    keymap(bufnr, "n", "gI", "<cmd>OmniSharpFindImplementations<CR>", opts)
-    keymap(bufnr, "n", "gr", "<cmd>OmniSharpFindUsages<CR>", opts)
-    keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-    keymap(bufnr, "n", "<leader>la", "<cmd>OmniSharpGetCodeActions<cr>", opts)
-    keymap(bufnr, "n", "<leader>lj", "<cmd>OmniSharpNavigateDown<cr>", opts)
-    keymap(bufnr, "n", "<leader>lk", "<cmd>OmniSharpNavigateUp<cr>", opts)
-    keymap(bufnr, "n", "<leader>lr", "<cmd>OmniSharpRename<cr>", opts)
-    keymap(bufnr, "n", "<leader>lf", "<cmd>OmniSharpCodeFormat<cr>", opts)
-  end,
-
   lsp_keymaps = function(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
