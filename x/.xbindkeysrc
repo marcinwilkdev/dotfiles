@@ -1,6 +1,9 @@
 "maim -s | xclip -selection clipboard -t image/png"
   Print
 
+"xcolor -s -f HEX"
+  Shift + Mod4 + c
+
 "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
   XF86AudioRaiseVolume
 
