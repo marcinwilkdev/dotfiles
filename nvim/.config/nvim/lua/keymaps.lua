@@ -5,18 +5,11 @@ M = {
     local keymap = vim.keymap.set
     local opts = { silent = true }
 
-    --Remap space as leader key
+    -- Remap space as leader key
     keymap("", "<Space>", "<Nop>", opts)
     vim.g.mapleader = " "
 
-    -- Modes
-    --   normal_mode = "n",
-    --   insert_mode = "i",
-    --   visual_mode = "v",
-    --   visual_block_mode = "x",
-    --   term_mode = "t",
-    --   command_mode = "c",
-    --   Better window navigation
+    -- Better window navigation
     keymap("n", "<C-h>", "<C-w>h", opts)
     keymap("n", "<C-j>", "<C-w>j", opts)
     keymap("n", "<C-k>", "<C-w>k", opts)
@@ -25,6 +18,12 @@ M = {
     -- Navigate buffers
     keymap("n", "<S-l>", ":bnext<CR>", opts)
     keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+    -- Move code lines
+    keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+    keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+    keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+    keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
     -- Clear highlights
     keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -39,8 +38,6 @@ M = {
     -- Stay in indent mode
     keymap("v", "<", "<gv", opts)
     keymap("v", ">", ">gv", opts)
-
-    -- Plugins --
 
     -- NvimTree
     keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
@@ -65,18 +62,6 @@ M = {
     keymap("n", "<leader>dk", "<cmd>lua require('dapui').eval()<cr>", opts)
     keymap("v", "<leader>dk", "<cmd>lua require('dapui').eval()<cr>", opts)
     keymap("n", "<leader>dt", "<cmd>lua require('dap').terminate()<cr>", opts)
-  end,
-
-  cscope_keymaps = function()
-    local opts = { noremap = true, silent = true }
-    local keymap = vim.api.nvim_buf_set_keymap
-
-    local bufnr = vim.api.nvim_get_current_buf()
-    keymap(bufnr, "n", "gc", "<cmd>lua require('cscope_maps').cscope_prompt('c', vim.fn.expand('<cword>'))<CR>", opts)
-    keymap(bufnr, "n", "gd", "<cmd>lua require('cscope_maps').cscope_prompt('g', vim.fn.expand('<cword>'))<CR>", opts)
-    keymap(bufnr, "n", "gf", "<cmd>lua require('cscope_maps').cscope_prompt('f', vim.fn.expand('<cword>'))<CR>", opts)
-    keymap(bufnr, "n", "gr", "<cmd>lua require('cscope_maps').cscope_prompt('s', vim.fn.expand('<cword>'))<CR>", opts)
-    keymap(bufnr, "n", "gt", "<cmd>lua require('cscope_maps').cscope_prompt('t', vim.fn.expand('<cword>'))<CR>", opts)
   end,
 
   lsp_keymaps = function(bufnr)
@@ -119,13 +104,11 @@ M = {
 
     -- Navigation
     map('n', '<leader>gj', function()
-      if vim.wo.diff then return ']c' end
       vim.schedule(function() gs.next_hunk() end)
       return '<Ignore>'
     end, {expr=true})
 
     map('n', '<leader>gk', function()
-      if vim.wo.diff then return '[c' end
       vim.schedule(function() gs.prev_hunk() end)
       return '<Ignore>'
     end, {expr=true})
