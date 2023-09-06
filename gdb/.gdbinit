@@ -28,3 +28,4 @@ end
 
 set history save
 set print pretty on
+set debuginfod enabled on
