@@ -32,3 +32,5 @@ alias cdtlib="cd ~/dev/renode-hq/src/renode/src/Infrastructure/src/Emulator/Core
 alias readelf="readelf -W"
 alias gdb_tlib="gdb -p `ps aux | grep Renode.dll | grep -v rg | awk '{ print $2 }'` -ex 'handle SIGXCPU SIG33 SIG34 SIG35 SIG36 SIG37 SIGPWR nostop noprint'"
 alias zynqmp_docs="google-chrome ~/dev/docs/zynqmp/*.pdf"
+
+alias pacman_programs="nvim ~/.dotfiles/general_config/.general_config/.pacman_programs"

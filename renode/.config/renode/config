@@ -6,7 +6,7 @@ serialization-mode = Generated
 use-synchronous-logging = False
 always-log-machine-name = False
 log-history-limit = 1000
-history-path = /home/mwilk/.config/renode/history
+history-path = /home/marcin/.config/renode/history
 
 [monitor]
 consume-exceptions-from-command = True
